@@ -1,0 +1,25 @@
+{
+  "name": "3-en-raya",
+  "version": "1.0.0",
+  "description": "sitio web simple",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sheila02/3-en-raya.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sheila02/3-en-raya/issues"
+  },
+  "homepage": "https://github.com/Sheila02/3-en-raya#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.3"
+  }
+}
