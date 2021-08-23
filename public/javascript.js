@@ -3,11 +3,11 @@ var socket = io();
 
 let turno = 0;
 let tablero = [];
+const player = document.querySelector("#player");
 
 const btnPulsado = async (e, pos) =>{
     turno ++;
     const btn = document.querySelector(`#${e}`);
-    const player = document.querySelector("#player");
     const color = turno % 2 ?'salmon':'paleGreen' ;
     const payerName = !(turno % 2) ?'salmon':'paleGreen';
     btn.style.backgroundColor = color;
@@ -59,5 +59,5 @@ socket.on('reset', () => {
     tablero = [];
     turno = 0;
     document.querySelectorAll('button').forEach((obj, i) => obj.style.backgroundColor = 'white');
-    document.querySelector('#player').innerHTML = 'Es turno de salmon';
+    player.innerHTML = 'Es turno de salmon';
 })
