@@ -1,0 +1,32 @@
+button{
+    width: 200px;
+    height: 200px;
+   
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 600px;
+    margin: auto;
+}
+
+
+.primero{
+    margin-top: 50px;
+}
+
+.dos{
+    margin-top: 80px;
+}
+
+.todo{
+    display: flex;
+}
+
+.imagen1{
+    margin-top: 130px;
+    padding: 50px;
+    margin: auto;
+}
+
