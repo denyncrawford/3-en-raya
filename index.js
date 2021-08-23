@@ -19,6 +19,9 @@ io.on('connection', (socket) => {
   socket.on('button', (data) => {
     io.emit('button', data);
   })
+  socket.on('reset', (data) => {
+    io.emit('reset', data);
+  });
 });
 
 server.listen(3000, () => {

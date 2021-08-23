@@ -2,9 +2,9 @@
 var socket = io();
 
 let turno = 0;
-const tablero = [];
+let tablero = [];
 
-const btnPulsado = (e, pos) =>{
+const btnPulsado = async (e, pos) =>{
     turno ++;
     const btn = document.querySelector(`#${e}`);
     const player = document.querySelector("#player");
@@ -13,8 +13,10 @@ const btnPulsado = (e, pos) =>{
     btn.style.backgroundColor = color;
     player.innerHTML = `Es turno de ${payerName}`
     tablero[pos] = color;
-    console.log(tablero);
-    if(haGanado()) alert('enorabuena player ' + color);
+    if(haGanado()) {
+        alert('enorabuena player ' + color);
+        socket.emit('reset');
+    }
 }
 
 const haGanado = () =>{
@@ -50,6 +52,12 @@ const haGanado = () =>{
 document.querySelectorAll('button').forEach((obj, i) => obj.addEventListener('click',(e) => socket.emit('button', {id: e.target.id, pos: i})));
 
 socket.on('button', ({id, pos}) => {
-    console.log(pos);
     btnPulsado(id, pos);
+})
+
+socket.on('reset', () => {
+    tablero = [];
+    turno = 0;
+    document.querySelectorAll('button').forEach((obj, i) => obj.style.backgroundColor = 'white');
+    document.querySelector('#player').innerHTML = 'Es turno de salmon';
 })
